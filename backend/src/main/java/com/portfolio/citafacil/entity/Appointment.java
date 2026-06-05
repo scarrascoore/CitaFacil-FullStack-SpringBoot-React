@@ -11,7 +11,7 @@ import java.time.LocalTime;
 public class Appointment {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     @Column(nullable = false,length = 120)
     private String patientName;
@@ -67,7 +67,7 @@ public class Appointment {
         return this.status == AppointmentStatus.COMPLETED;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
