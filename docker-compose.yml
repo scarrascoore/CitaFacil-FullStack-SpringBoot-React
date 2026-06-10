@@ -1,0 +1,46 @@
+services:
+  database:
+    image: postgres:16-alpine
+    container_name: citafacil-database
+    environment:
+      POSTGRES_DB: citafacil_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5433:5432"
+    volumes:
+      - citafacil_postgres_data:/var/lib/postgresql/data
+    networks:
+      - citafacil-network
+
+  backend:
+    build:
+      context: ./backend
+    container_name: citafacil-backend
+    depends_on:
+      - database
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://database:5432/citafacil_db
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+    ports:
+      - "8080:8080"
+    networks:
+      - citafacil-network
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: citafacil-frontend
+    depends_on:
+      - backend
+    ports:
+      - "5173:80"
+    networks:
+      - citafacil-network
+
+volumes:
+  citafacil_postgres_data:
+
+networks:
+  citafacil-network:
