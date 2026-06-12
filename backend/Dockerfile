@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY mvnw .
 COPY .mvn .mvn
-COPY pom.xml
+COPY pom.xml .
 
 RUN chmod +x mvnw
 RUN ./mvnw dependency:go-offline
@@ -21,5 +21,4 @@ COPY --from=build /app/target/*.jar app.jar
 
 EXPOSE 8080
 
-ENTRYPOINT ["java","jar","app.jar"]
-
+ENTRYPOINT ["java", "-jar", "app.jar"]
