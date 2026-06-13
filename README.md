@@ -70,7 +70,7 @@ PostgreSQL
 ---
 
 ## Arquitectura con docker
-![Arquitectura con Docker.png](../docs/Arquitectura%20con%20Docker.png)
+![Arquitectura con Docker.png](docs/Arquitectura%20con%20Docker.png)
 
 ## Puertos utilizados
 
@@ -82,9 +82,9 @@ PostgreSQL
 
 ## Arquitectura del Proyecto
 ### Arquitectura Backend
-![Arq Backend.png](../docs/Arq%20Backend.png)
+![Arq Backend.png](docs/Arq%20Backend.png)
 ### Arquitectura Frontend
-![Arq Frontend.png](../docs/Arq%20Frontend.png)
+![Arq Frontend.png](docs/Arq%20Frontend.png)
 
 ---
 
